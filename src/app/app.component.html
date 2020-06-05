@@ -1,2 +1,13 @@
-<p>app works!</p>
+<mat-toolbar color="primary">
+	<span color="white">
+		<a routerLink="/">{{ title }}</a>
+	</span>
+	<span class="fill-remaining"></span>
+	<span *ngIf="isAuthenticated$ | async; else authNav">
+		avatar
+	</span>
+	<ng-template #authNav>
+		<span><a routerLink="/auth">signup</a></span>
+	</ng-template>
+</mat-toolbar>
 <router-outlet></router-outlet>

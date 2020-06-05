@@ -4,6 +4,7 @@ import * as AuthActions from './auth.actions'
 export const authFeatureKey = 'auth'
 
 export interface AuthState {
+	isAuthenticated: boolean
 	fname: string
 	lname: string
 	username: string
@@ -12,6 +13,7 @@ export interface AuthState {
 }
 
 export const initialState: AuthState = {
+	isAuthenticated: false,
 	fname: '',
 	lname: '',
 	username: '',

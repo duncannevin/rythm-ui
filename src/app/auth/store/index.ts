@@ -3,9 +3,10 @@ import { AuthState, authFeatureKey } from './auth.reducers'
 import { LoginModel } from '../models/login.model'
 import { RegisterModel } from '../models/register.model'
 
-export const getLoginState = (state: AuthState) => new LoginModel(state)
-export const getRegisterState = (state: AuthState) => new RegisterModel(state)
+export const getAuthState = createFeatureSelector<AuthState>(authFeatureKey)
 
-export const loginState = createSelector(getLoginState, (loginState: LoginModel) => loginState)
+export const loginState = createSelector(getAuthState, (authState: AuthState) => new LoginModel(authState))
 
-export const registerState = createSelector(getRegisterState, (registerState: RegisterModel) => registerState)
+export const registerState = createSelector(getAuthState, (authState: AuthState) => new RegisterModel(authState))
+
+export const isAuthenticatedState = createSelector(getAuthState, (authState: AuthState) => authState.isAuthenticated)
