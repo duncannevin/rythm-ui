@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core'
-import { LoginService } from '../../services/login.service'
+import { LoginService } from '../../services/login/login.service'
 import { LoginModel } from '../../models/login.model'
 
 @Component({
@@ -10,10 +10,5 @@ import { LoginModel } from '../../models/login.model'
 export class LoginComponent implements OnInit {
 	constructor(private loginService: LoginService) {}
 
-	ngOnInit(): void {
-		this.loginService.getLoginState().subscribe(console.log)
-		setTimeout(() => {
-			this.loginService.updateLoginState(new LoginModel({ username: 'foobar', email: 'a@a.com', password: '1234' }))
-		}, 3000)
-	}
+	ngOnInit(): void {}
 }
