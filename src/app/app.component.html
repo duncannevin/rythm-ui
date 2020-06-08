@@ -1,13 +1,11 @@
-<mat-toolbar color="primary">
-	<span color="white">
-		<a routerLink="/">{{ title }}</a>
+<mat-toolbar>
+	<span>
+		<a class="font-red" routerLink="/">{{ title }}</a>
 	</span>
 	<span class="fill-remaining"></span>
-	<span *ngIf="isAuthenticated$ | async; else authNav">
-		avatar
+	<span>
+		<button mat-button><a routerLink="/auth/login">login</a></button>
+		<button class="font-red" mat-button><a routerLink="/auth/register">signup</a></button>
 	</span>
-	<ng-template #authNav>
-		<span><a routerLink="/auth">signup</a></span>
-	</ng-template>
 </mat-toolbar>
 <router-outlet></router-outlet>
