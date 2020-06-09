@@ -1,0 +1,27 @@
+<mat-toolbar>
+	<span class="home-toolbar-logo">
+		<img src="../../assets/logo.png" alt="a digital image of a metronome" />
+		<h1 class="medium-font red-font">
+			{{ title }}
+		</h1>
+	</span>
+	<span class="fill-remaining"></span>
+	<span>
+		<button mat-button routerLink="/auth/login">
+			{{ login }}
+		</button>
+		<button class="red-font" mat-button routerLink="/auth/register">
+			{{ signup }}
+		</button>
+	</span>
+</mat-toolbar>
+
+<section class="home-top-section">
+	<div>
+		<h1 class="big-font bold">{{ slogan }}</h1>
+		<p>{{ description }}</p>
+		<button mat-flat-button class="lg-btn" color="primary" routerLink="/auth/register">
+			{{ getStarted }}
+		</button>
+	</div>
+</section>

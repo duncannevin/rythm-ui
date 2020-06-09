@@ -9,17 +9,21 @@ import { AuthModule } from './auth/auth.module'
 import { StoreDevtoolsModule } from '@ngrx/store-devtools'
 import { environment } from '../environments/environment'
 import { MaterialModule } from './material/material.module'
+import { HomeModule } from './home/home.module'
+import { RouteInterceptModule } from './route-intercept/route-intercept.module'
 
 @NgModule({
 	declarations: [AppComponent],
 	imports: [
 		BrowserModule,
+		MaterialModule,
 		AppRoutingModule,
 		BrowserAnimationsModule,
 		StoreModule.forRoot({}),
+		RouteInterceptModule,
+		HomeModule,
 		AuthModule,
 		StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
-		MaterialModule,
 	],
 	providers: [],
 	bootstrap: [AppComponent],

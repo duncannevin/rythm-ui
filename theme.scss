@@ -9,8 +9,8 @@
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
-$rythm-app-primary: mat-palette($mat-indigo);
-$rythm-app-accent: mat-palette($mat-pink, A200, A100, A400);
+$rythm-app-primary: mat-palette($mat-red);
+$rythm-app-accent: mat-palette($mat-grey, A200, A100, A400);
 
 // The warn palette is optional (defaults to red).
 $rythm-app-warn: mat-palette($mat-red);
@@ -25,16 +25,41 @@ $rythm-app-theme: mat-light-theme($rythm-app-primary, $rythm-app-accent, $rythm-
 .rythm-theme {
 	@include angular-material-theme($rythm-app-theme);
 
-	* {
-		color: black;
-	}
-
-	.font-red,
-	.font-red * {
-		color: rgb(228, 66, 50);
+	.fill-remaining {
+		flex: 1 1 auto;
 	}
 
 	a {
 		text-decoration: none;
+	}
+
+	section {
+		display: flex;
+		justify-content: center;
+	}
+
+	*.medium-font {
+		font-size: 150%;
+	}
+
+	*.big-font {
+		font-size: 400%;
+	}
+
+	*.red-font {
+		color: #e53835;
+	}
+
+	.bold {
+		font-weight: 500;
+	}
+
+	button.lg-btn {
+		font-size: 150%;
+		padding: 0.75rem 1.6rem;
+	}
+
+	p {
+		font-size: 1.2rem;
 	}
 }

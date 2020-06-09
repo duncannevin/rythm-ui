@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core'
 import { AppService } from './app.service'
 import { Observable } from 'rxjs'
-import { map } from 'rxjs/operators'
+import { RouteInterceptService } from './route-intercept/route-intercept.service'
 
 @Component({
 	selector: 'app-root',
@@ -12,9 +12,11 @@ export class AppComponent implements OnInit {
 	title = 'rythm'
 	isAuthenticated$: Observable<boolean> | null = null
 
-	constructor(private appService: AppService) {}
+	constructor(private appService: AppService, private routeInterceptService: RouteInterceptService) {}
 
 	ngOnInit(): void {
 		this.isAuthenticated$ = this.appService.getIsAuthenticated()
+
+		this.routeInterceptService.initialize()
 	}
 }
