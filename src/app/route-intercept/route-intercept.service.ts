@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core'
 import { Router, NavigationEnd } from '@angular/router'
-import { filter, map } from 'rxjs/operators'
+import { filter, map, tap } from 'rxjs/operators'
 import { Title } from '@angular/platform-browser'
+import { Observable } from 'rxjs'
 
 @Injectable({
 	providedIn: 'root',
@@ -9,15 +10,14 @@ import { Title } from '@angular/platform-browser'
 export class RouteInterceptService {
 	constructor(private router: Router, private titleService: Title) {}
 
-	initialize() {
-		this.router.events
-			.pipe(
-				filter((evt) => evt instanceof NavigationEnd),
-				map((navEnd: NavigationEnd) => {
-					this.updateTitle(navEnd)
-				})
-			)
-			.subscribe()
+	initialize(): Observable<void> {
+		return this.router.events.pipe(
+			tap(console.log),
+			filter((evt) => evt instanceof NavigationEnd),
+			map((navEnd: NavigationEnd) => {
+				this.updateTitle(navEnd)
+			})
+		)
 	}
 
 	private updateTitle(navEnd: NavigationEnd) {
