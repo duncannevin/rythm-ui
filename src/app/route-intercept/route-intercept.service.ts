@@ -12,7 +12,6 @@ export class RouteInterceptService {
 
 	initialize(): Observable<void> {
 		return this.router.events.pipe(
-			tap(console.log),
 			filter((evt) => evt instanceof NavigationEnd),
 			map((navEnd: NavigationEnd) => {
 				this.updateTitle(navEnd)

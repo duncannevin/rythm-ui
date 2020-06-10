@@ -6,10 +6,16 @@ import { RegisterComponent } from './components/register/register.component'
 import { LoginComponent } from './components/login/login.component'
 import { AuthComponent } from './auth.component'
 import { AppRoutingModule } from '../app-routing.module'
+import { HttpModule } from '../http/http.module'
 
 @NgModule({
 	declarations: [RegisterComponent, LoginComponent, AuthComponent],
-	imports: [StoreModule.forFeature(fromAuth.authFeatureKey, fromAuth.reducer), CommonModule, AppRoutingModule],
+	imports: [
+		StoreModule.forFeature(fromAuth.authFeatureKey, fromAuth.reducer),
+		CommonModule,
+		AppRoutingModule,
+		HttpModule,
+	],
 	exports: [RegisterComponent, LoginComponent],
 })
 export class AuthModule {}

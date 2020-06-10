@@ -11,11 +11,15 @@ import { environment } from '../environments/environment'
 import { MaterialModule } from './material/material.module'
 import { HomeModule } from './home/home.module'
 import { RouteInterceptModule } from './route-intercept/route-intercept.module'
+import { HttpClientModule } from '@angular/common/http'
+import { HttpModule } from './http/http.module'
+import { ConfigsModule } from './configs/configs.module'
 
 @NgModule({
 	declarations: [AppComponent],
 	imports: [
 		BrowserModule,
+		HttpClientModule,
 		MaterialModule,
 		AppRoutingModule,
 		BrowserAnimationsModule,
@@ -23,6 +27,7 @@ import { RouteInterceptModule } from './route-intercept/route-intercept.module'
 		RouteInterceptModule,
 		HomeModule,
 		AuthModule,
+		ConfigsModule,
 		StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
 	],
 	providers: [],
