@@ -1,5 +1,23 @@
 .auth-card {
 	width: 100%;
-	max-width: 600px;
+	max-width: 400px;
 	margin: 3rem auto;
+
+	& > *:not(:first-child) {
+		margin: 1.3rem;
+	}
+
+	.auth-form {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.auth-submit.mat-flat-button {
+		margin: 1.6rem 0;
+		width: 100%;
+	}
+
+	hr {
+		margin: 3rem 0;
+	}
 }

@@ -38,12 +38,20 @@ $rythm-app-theme: mat-light-theme($rythm-app-primary, $rythm-app-accent, $rythm-
 		justify-content: center;
 	}
 
+	*.small-font {
+		font-size: 1rem;
+	}
+
 	*.medium-font {
 		font-size: 1.5rem;
 	}
 
 	*.big-font {
 		font-size: 4rem;
+	}
+
+	*.black-font {
+		color: black;
 	}
 
 	*.red-font {
