@@ -3,11 +3,11 @@ import { CommonModule } from '@angular/common'
 import { HomeComponent } from './home.component'
 import { MaterialModule } from '../material/material.module'
 import { AppRoutingModule } from '../app-routing.module'
+import { CommonComponentsModule } from '../common-components/common-components.module'
 
 @NgModule({
 	declarations: [HomeComponent],
-	imports: [CommonModule, MaterialModule, AppRoutingModule],
+	imports: [MaterialModule, CommonComponentsModule, AppRoutingModule, CommonModule],
 	exports: [HomeComponent],
-	bootstrap: [HomeComponent],
 })
 export class HomeModule {}

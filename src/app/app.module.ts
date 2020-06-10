@@ -12,7 +12,6 @@ import { MaterialModule } from './material/material.module'
 import { HomeModule } from './home/home.module'
 import { RouteInterceptModule } from './route-intercept/route-intercept.module'
 import { HttpClientModule } from '@angular/common/http'
-import { HttpModule } from './http/http.module'
 import { ConfigsModule } from './configs/configs.module'
 
 @NgModule({

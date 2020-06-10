@@ -8,7 +8,7 @@ import { RegisterService } from '../../services/register/register.service'
 @Component({
 	selector: 'auth-register',
 	templateUrl: './register.component.html',
-	styleUrls: ['./register.component.scss'],
+	styleUrls: ['./register.component.scss', '../styles/common.scss'],
 })
 export class RegisterComponent implements OnInit {
 	registerForm$: Observable<RegisterModel>
