@@ -1,8 +1,4 @@
 import { Component, OnInit } from '@angular/core'
-import { Store, select } from '@ngrx/store'
-import { RegisterModel } from '../../models/register.model'
-import { Observable } from 'rxjs'
-import * as fromRoot from '../../store'
 import { RegisterService } from '../../services/register/register.service'
 import { FormControl, Validators, FormGroup } from '@angular/forms'
 
@@ -16,6 +12,7 @@ export class RegisterComponent implements OnInit {
 	nameHint: string = 'Ex. Fred Rogers'
 	usernameHint: string = 'Ex. freddyRogers_1123'
 	emailHint: string = 'Ex. fred@gmail.com'
+	passwordHint: string = 'Ex. Qwerty1!'
 	alreadySignedUp: string = 'Already signed up?'
 	goToLogin: string = 'Go to login'
 
