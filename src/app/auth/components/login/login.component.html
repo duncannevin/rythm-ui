@@ -1,1 +1,34 @@
-<p>login works!</p>
+<mat-card class="auth-card">
+	<mat-card-title>
+		<app-logo></app-logo>
+	</mat-card-title>
+	<mat-card-subtitle>
+		<h1 class="bold black-font">{{ login }}</h1>
+	</mat-card-subtitle>
+	<mat-card-content>
+		<form class="auth-form" [formGroup]="loginForm" (submit)="submit()">
+			<mat-form-field>
+				<mat-label>{{ usernameOrEmail }}</mat-label>
+				<input matInput formControlName="usernameOrEmail" />
+				<mat-error *ngIf="loginForm.controls.usernameOrEmail.touched && loginForm.controls.usernameOrEmail.invalid">
+					<span *ngIf="loginForm.controls.usernameOrEmail.errors.required">Required</span>
+				</mat-error>
+			</mat-form-field>
+			<mat-form-field>
+				<mat-label>{{ password }}</mat-label>
+				<input matInput formControlName="password" />
+				<mat-error *ngIf="loginForm.controls.password.touched && loginForm.controls.password.invalid">
+					<span *ngIf="loginForm.controls.password.errors.required">Required</span>
+				</mat-error>
+			</mat-form-field>
+			<br />
+			<button class="auth-submit" mat-flat-button color="primary" type="submit">{{ login }}</button>
+		</form>
+		<hr />
+		<div>
+			<p class="small-font">
+				{{ notSignedUp }} <a routerLink="/auth/register" class="red-font">{{ goToRegister }}</a>
+			</p>
+		</div>
+	</mat-card-content>
+</mat-card>

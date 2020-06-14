@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core'
 import { RegisterService } from '../../services/register/register.service'
-import { FormControl, Validators, FormGroup } from '@angular/forms'
+import { FormControl, Validators, FormGroup, FormGroupDirective, NgForm, FormBuilder } from '@angular/forms'
+import { EmailExistsValidator } from '../../validators/email.validator'
+import { UsernameExistsValidator } from '../../validators/username.validator'
 
 @Component({
 	selector: 'auth-register',
@@ -16,14 +18,28 @@ export class RegisterComponent implements OnInit {
 	alreadySignedUp: string = 'Already signed up?'
 	goToLogin: string = 'Go to login'
 
-	registerForm = new FormGroup({
-		name: new FormControl(''),
-		username: new FormControl(''),
-		email: new FormControl('', [Validators.email, Validators.required]),
-		password: new FormControl(''),
-	})
+	registerForm: FormGroup
 
-	constructor(private registerService: RegisterService) {}
+	constructor(
+		private formBuilder: FormBuilder,
+		private usernameExistsValidator: UsernameExistsValidator,
+		private emailExistsValidator: EmailExistsValidator
+	) {}
 
-	ngOnInit(): void {}
+	ngOnInit(): void {
+		this.registerForm = this.formBuilder.group({
+			name: ['', [Validators.required]],
+			username: ['', [Validators.required], [this.usernameExistsValidator]],
+			email: ['', [Validators.required, Validators.email], [this.emailExistsValidator]],
+			password: ['', [Validators.required, Validators.minLength(8)]],
+		})
+	}
+
+	submit() {
+		if (!this.registerForm.valid) {
+			return
+		}
+
+		console.log(this.registerForm.value)
+	}
 }

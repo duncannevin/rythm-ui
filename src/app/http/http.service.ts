@@ -18,9 +18,9 @@ export class HttpService {
 			.pipe(catchError(this.handleError))
 	}
 
-	get<T>(resource: AuthGetEnum): Observable<T> {
+	get<T>(resource: AuthGetEnum, params?: string): Observable<T> {
 		return this.client
-			.get<T>(`${this.configs.getConfig(ConfigEnum.RYTHM_API)}${resource}`)
+			.get<T>(`${this.configs.getConfig(ConfigEnum.RYTHM_API)}${resource}/${params || ''}`)
 			.pipe(catchError(this.handleError))
 	}
 
