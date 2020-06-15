@@ -14,6 +14,7 @@ import { RouteInterceptModule } from './route-intercept/route-intercept.module'
 import { HttpClientModule } from '@angular/common/http'
 import { ConfigsModule } from './configs/configs.module'
 import { UserModule } from './user/user.module'
+import { EffectsModule } from '@ngrx/effects'
 
 @NgModule({
 	declarations: [AppComponent],
@@ -30,6 +31,7 @@ import { UserModule } from './user/user.module'
 		AuthModule,
 		ConfigsModule,
 		StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
+		EffectsModule.forRoot([]),
 	],
 	providers: [],
 	bootstrap: [AppComponent],
