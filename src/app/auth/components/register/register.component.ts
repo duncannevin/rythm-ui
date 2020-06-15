@@ -1,13 +1,12 @@
 import { Component, OnInit } from '@angular/core'
-import { RegisterService } from '../../services/register/register.service'
-import { FormControl, Validators, FormGroup, FormGroupDirective, NgForm, FormBuilder } from '@angular/forms'
+import { Validators, FormGroup, FormBuilder } from '@angular/forms'
 import { EmailExistsValidator } from '../../validators/email.validator'
 import { UsernameExistsValidator } from '../../validators/username.validator'
 
 @Component({
 	selector: 'auth-register',
 	templateUrl: './register.component.html',
-	styleUrls: ['./register.component.scss', '../styles/common.scss'],
+	styleUrls: ['./register.component.scss', '../../styles/common.scss'],
 })
 export class RegisterComponent implements OnInit {
 	signup: string = 'Signup'

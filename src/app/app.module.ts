@@ -13,6 +13,7 @@ import { HomeModule } from './home/home.module'
 import { RouteInterceptModule } from './route-intercept/route-intercept.module'
 import { HttpClientModule } from '@angular/common/http'
 import { ConfigsModule } from './configs/configs.module'
+import { UserModule } from './user/user.module'
 
 @NgModule({
 	declarations: [AppComponent],
@@ -24,6 +25,7 @@ import { ConfigsModule } from './configs/configs.module'
 		BrowserAnimationsModule,
 		StoreModule.forRoot({}),
 		RouteInterceptModule,
+		UserModule,
 		HomeModule,
 		AuthModule,
 		ConfigsModule,

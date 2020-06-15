@@ -1,8 +1,10 @@
-export interface UserModel {
+export class UserModel {
 	_id: string
 	email: string
 	role: string
 	username: string
+	createdAt: string
+	updateAt: string
 	user_id: string
 	liked: string[]
 	interests: string[]

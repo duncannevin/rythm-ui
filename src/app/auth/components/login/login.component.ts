@@ -5,7 +5,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms'
 @Component({
 	selector: 'auth-login',
 	templateUrl: './login.component.html',
-	styleUrls: ['./login.component.scss', '../styles/common.scss'],
+	styleUrls: ['./login.component.scss', '../../styles/common.scss'],
 })
 export class LoginComponent implements OnInit {
 	usernameOrEmail: string = 'Username or Email'

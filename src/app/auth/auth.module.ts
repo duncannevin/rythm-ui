@@ -8,6 +8,8 @@ import { HttpModule } from '../http/http.module'
 import { MaterialModule } from '../material/material.module'
 import { CommonComponentsModule } from '../common-components/common-components.module'
 import { ReactiveFormsModule } from '@angular/forms'
+import { StoreModule } from '@ngrx/store'
+import * as fromAuth from './store/auth.reducer'
 
 @NgModule({
 	declarations: [RegisterComponent, LoginComponent, AuthComponent],
@@ -15,6 +17,7 @@ import { ReactiveFormsModule } from '@angular/forms'
 		CommonModule,
 		CommonComponentsModule,
 		ReactiveFormsModule,
+		StoreModule.forFeature(fromAuth.authFeatureKey, fromAuth.reducer),
 		MaterialModule,
 		CommonModule,
 		AppRoutingModule,

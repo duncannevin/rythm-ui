@@ -3,7 +3,6 @@ import { HttpService } from 'src/app/http/http.service'
 import { AuthPostEnum, AuthGetEnum } from 'src/app/http/enum/resource-location.enum'
 import { catchError, map } from 'rxjs/operators'
 import { throwError, Observable } from 'rxjs'
-import { Store } from '@ngrx/store'
 
 @Injectable({
 	providedIn: 'root',
