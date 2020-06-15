@@ -30,7 +30,8 @@ export const initialState: UserState = {
 
 const userReducer = createReducer(
 	initialState,
-	on(UserActions.setUser, (_, user: UserModel) => user)
+	on(UserActions.setUser, (_, { user }) => user),
+	on(UserActions.resetUser, () => initialState)
 )
 
 export function reducer(state: UserState | undefined, action: Action) {

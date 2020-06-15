@@ -8,10 +8,11 @@
 	<mat-card-content>
 		<form class="auth-form" [formGroup]="loginForm" (submit)="submit()">
 			<mat-form-field>
-				<mat-label>{{ usernameOrEmail }}</mat-label>
-				<input matInput formControlName="usernameOrEmail" />
-				<mat-error *ngIf="loginForm.controls.usernameOrEmail.touched && loginForm.controls.usernameOrEmail.invalid">
-					<span *ngIf="loginForm.controls.usernameOrEmail.errors.required">Required</span>
+				<mat-label>{{ email }}</mat-label>
+				<input matInput formControlName="email" />
+				<mat-error *ngIf="loginForm.controls.email.touched && loginForm.controls.email.invalid">
+					<span *ngIf="loginForm.controls.email.errors.required">Required</span>
+					<span *ngIf="loginForm.controls.email.errors.email">Invalid</span>
 				</mat-error>
 			</mat-form-field>
 			<mat-form-field>

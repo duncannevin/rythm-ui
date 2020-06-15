@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core'
 import { FormGroup, FormBuilder, Validators } from '@angular/forms'
+import { Store } from '@ngrx/store'
+import { AuthState } from '../../store/auth.reducer'
+import { AuthActions } from '../../store/auth.actions'
+import { LoginModel } from '../../models/login.model'
 
 @Component({
 	selector: 'auth-login',
@@ -7,7 +11,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms'
 	styleUrls: ['./login.component.scss', '../../styles/common.scss'],
 })
 export class LoginComponent implements OnInit {
-	usernameOrEmail: string = 'Username or Email'
+	email: string = 'Email'
 	password: string = 'Password'
 	login: string = 'Login'
 	notSignedUp = 'Not signed up?'
@@ -15,11 +19,11 @@ export class LoginComponent implements OnInit {
 
 	loginForm: FormGroup
 
-	constructor(private formBuilder: FormBuilder) {}
+	constructor(private formBuilder: FormBuilder, private authStore: Store<AuthState>) {}
 
 	ngOnInit(): void {
 		this.loginForm = this.formBuilder.group({
-			usernameOrEmail: [null, [Validators.required]],
+			email: [null, [Validators.required, Validators.email]],
 			password: [null, [Validators.required]],
 		})
 	}
@@ -29,6 +33,6 @@ export class LoginComponent implements OnInit {
 			return
 		}
 
-		console.log('login form', this.loginForm.value)
+		this.authStore.dispatch({ type: AuthActions.LOGIN, loginModel: new LoginModel(this.loginForm.value) })
 	}
 }

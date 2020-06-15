@@ -10,11 +10,14 @@ import { AuthGetEnum, AuthPostEnum } from './enum/resource-location.enum'
 	providedIn: 'root',
 })
 export class HttpService {
+	httpOptions: {} = {}
+
 	constructor(private configs: ConfigsService, private client: HttpClient) {}
 
-	post<T>(resource: AuthGetEnum | AuthPostEnum, body: string): Observable<T> {
+	post<T>(resource: AuthGetEnum | AuthPostEnum, body: any): Observable<T> {
+		console.log(resource, body)
 		return this.client
-			.post<T>(`${this.configs.getConfig(ConfigEnum.RYTHM_API)}${resource}`, body)
+			.post<T>(`${this.configs.getConfig(ConfigEnum.RYTHM_API)}${resource}`, body, this.httpOptions)
 			.pipe(catchError(this.handleError))
 	}
 

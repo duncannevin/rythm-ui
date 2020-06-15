@@ -10,6 +10,9 @@ import { CommonComponentsModule } from '../common-components/common-components.m
 import { ReactiveFormsModule } from '@angular/forms'
 import { StoreModule } from '@ngrx/store'
 import * as fromAuth from './store/auth.reducer'
+import { EffectsModule } from '@ngrx/effects'
+import { AuthEffects } from './store/auth.effects'
+import { UserModule } from '../user/user.module'
 
 @NgModule({
 	declarations: [RegisterComponent, LoginComponent, AuthComponent],
@@ -17,6 +20,8 @@ import * as fromAuth from './store/auth.reducer'
 		CommonModule,
 		CommonComponentsModule,
 		ReactiveFormsModule,
+		UserModule,
+		EffectsModule.forFeature([AuthEffects]),
 		StoreModule.forFeature(fromAuth.authFeatureKey, fromAuth.reducer),
 		MaterialModule,
 		CommonModule,

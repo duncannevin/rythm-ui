@@ -13,7 +13,7 @@ export const initialState: AuthState = {
 
 const authReducer = createReducer(
 	initialState,
-	on(AuthActions.setAuthed, (state, { responseCode }) => ({ isAuthed: responseCode > 199 && responseCode < 202 }))
+	on(AuthActions.setAuthed, (_, { isAuthed }) => ({ isAuthed }))
 )
 
 export function reducer(state: AuthState | undefined, action: Action) {
