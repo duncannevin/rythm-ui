@@ -21,6 +21,9 @@
 				<mat-hint>{{ usernameHint }}</mat-hint>
 				<mat-error *ngIf="registerForm.controls.username.touched && registerForm.controls.username.invalid">
 					<span *ngIf="registerForm.controls.username.errors.required">Required</span>
+					<span *ngIf="registerForm.controls.username.errors.exists"
+						>Username already exists <a class="black-font" routerLink="/auth/login">Login?</a></span
+					>
 				</mat-error>
 			</mat-form-field>
 			<mat-form-field>
@@ -30,6 +33,9 @@
 				<mat-error *ngIf="registerForm.controls.email.touched && registerForm.controls.email.invalid">
 					<span *ngIf="registerForm.controls.email.errors.required">Required</span>
 					<span *ngIf="registerForm.controls.email.errors.email">Invalid</span>
+					<span *ngIf="registerForm.controls.email.errors.exists"
+						>Email alread exists <a class="black-font" routerLink="/auth/login">Login?</a></span
+					>
 				</mat-error>
 			</mat-form-field>
 			<mat-form-field>

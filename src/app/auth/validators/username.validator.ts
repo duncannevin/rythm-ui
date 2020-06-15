@@ -9,6 +9,9 @@ export class UsernameExistsValidator implements AsyncValidator {
 	constructor(private registerService: RegisterService) {}
 
 	validate(ctrl: AbstractControl): Observable<ValidationErrors> {
-		return this.registerService.usernameExists(ctrl.value).pipe(catchError(() => of(null)))
+		return this.registerService.usernameExists(ctrl.value).pipe(
+			map((bool) => (bool ? { exists: bool } : null)),
+			catchError(() => of(null))
+		)
 	}
 }

@@ -10,9 +10,9 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms'
 export class LoginComponent implements OnInit {
 	usernameOrEmail: string = 'Username or Email'
 	password: string = 'Password'
-	login: string = 'login'
+	login: string = 'Login'
 	notSignedUp = 'Not signed up?'
-	goToRegister = 'Go to register page.'
+	goToRegister = 'Go to register'
 
 	loginForm: FormGroup
 

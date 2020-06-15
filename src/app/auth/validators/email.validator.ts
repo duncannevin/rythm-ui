@@ -9,6 +9,9 @@ export class EmailExistsValidator implements AsyncValidator {
 	constructor(private registerService: RegisterService) {}
 
 	validate(ctrl: AbstractControl): Observable<ValidationErrors> {
-		return this.registerService.emailExists(ctrl.value).pipe(catchError(() => of(null)))
+		return this.registerService.emailExists(ctrl.value).pipe(
+			map((bool) => (bool ? { exists: bool } : null)),
+			catchError(() => of(null))
+		)
 	}
 }
