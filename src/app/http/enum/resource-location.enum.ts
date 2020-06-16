@@ -13,6 +13,10 @@ export enum AuthPostEnum {
 	REGISTER = '/auth/register',
 }
 
+export enum AuthPutEnum {
+	LOGOUT = '/auth/logout',
+}
+
 export enum UserGetEnum {
 	PROFILE = '/users/getprofile',
 }

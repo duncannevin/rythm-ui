@@ -6,6 +6,7 @@ export enum AuthActions {
 	LOGIN = '[LOGIN] Login user',
 	SET_ROLE = '[SET ROLE] Set the authed users role',
 	RESET_AUTH = '[RESET AUTH] Resets auth to original state',
+	LOGOUT = '[LOGOUT] Logs a user out',
 }
 
 export const setAuthed = createAction(AuthActions.SET_IS_AUTHED, props<{ isAuthed: boolean }>())

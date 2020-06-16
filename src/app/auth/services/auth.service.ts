@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core'
 import { Observable } from 'rxjs'
 import { HttpService } from 'src/app/http/http.service'
-import { AuthGetEnum, AuthPostEnum } from 'src/app/http/enum/resource-location.enum'
+import { AuthGetEnum, AuthPostEnum, AuthPutEnum } from 'src/app/http/enum/resource-location.enum'
 import { map } from 'rxjs/operators'
 import { RegisterModel } from '../models/register.model'
 import { UserModel } from 'src/app/user/models/user.model'
@@ -29,5 +29,9 @@ export class AuthService {
 
 	login(loginModel: LoginModel): Observable<UserModel> {
 		return this.httpService.post<UserModel>(AuthPostEnum.LOGIN, loginModel)
+	}
+
+	logout(): Observable<{ loggedOut: boolean }> {
+		return this.httpService.put<{ loggedOut: boolean }>(AuthPutEnum.LOGOUT)
 	}
 }

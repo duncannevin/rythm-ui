@@ -1,10 +1,11 @@
-import { NgModule } from '@angular/core'
-import { Routes, RouterModule } from '@angular/router'
+import { NgModule, Injectable } from '@angular/core'
+import { Routes, RouterModule, CanActivate } from '@angular/router'
 import { AuthComponent } from './auth/auth.component'
 import { LoginComponent } from './auth/components/login/login.component'
 import { RegisterComponent } from './auth/components/register/register.component'
 import { HomeComponent } from './home/home.component'
-import { MaterialModule } from './material/material.module'
+import { UserComponent } from './user/user.component'
+import { AuthGuardService } from './auth/services/auth-guard.service'
 
 const routes: Routes = [
 	{
@@ -18,6 +19,12 @@ const routes: Routes = [
 			{ path: 'login', component: LoginComponent },
 			{ path: 'register', component: RegisterComponent },
 		],
+		canActivate: [AuthGuardService],
+	},
+	{
+		path: ':user',
+		component: UserComponent,
+		canActivate: [AuthGuardService],
 	},
 ]
 

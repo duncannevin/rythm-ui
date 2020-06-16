@@ -4,7 +4,7 @@ import { ConfigEnum } from '../configs/enum/config.enum'
 import { concatMap, catchError } from 'rxjs/operators'
 import { HttpClient, HttpErrorResponse } from '@angular/common/http'
 import { throwError, Observable } from 'rxjs'
-import { AuthGetEnum, AuthPostEnum, UserGetEnum } from './enum/resource-location.enum'
+import { AuthGetEnum, AuthPostEnum, UserGetEnum, AuthPutEnum } from './enum/resource-location.enum'
 
 @Injectable({
 	providedIn: 'root',
@@ -17,7 +17,6 @@ export class HttpService {
 	constructor(private configs: ConfigsService, private client: HttpClient) {}
 
 	post<T>(resource: AuthGetEnum | AuthPostEnum, body: any): Observable<T> {
-		console.log(resource, body)
 		return this.client
 			.post<T>(`${this.configs.getConfig(ConfigEnum.RYTHM_API)}${resource}`, body, this.httpOptions)
 			.pipe(catchError(this.handleError))
@@ -26,6 +25,12 @@ export class HttpService {
 	get<T>(resource: AuthGetEnum | UserGetEnum, params?: string): Observable<T> {
 		return this.client
 			.get<T>(`${this.configs.getConfig(ConfigEnum.RYTHM_API)}${resource}/${params || ''}`, this.httpOptions)
+			.pipe(catchError(this.handleError))
+	}
+
+	put<T>(resource: AuthPutEnum): Observable<T> {
+		return this.client
+			.put<T>(`${this.configs.getConfig(ConfigEnum.RYTHM_API)}${resource}`, {}, this.httpOptions)
 			.pipe(catchError(this.handleError))
 	}
 
