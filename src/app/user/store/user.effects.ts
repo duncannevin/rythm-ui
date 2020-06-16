@@ -32,7 +32,7 @@ export class UserEffects {
 	}
 
 	private failure() {
-		this.authStore.dispatch({ type: AuthActions.SET_IS_AUTHED, isAuthed: false })
+		this.authStore.dispatch({ type: AuthActions.RESET_AUTH })
 		return of({ type: UserActions.RESET_USER })
 	}
 }

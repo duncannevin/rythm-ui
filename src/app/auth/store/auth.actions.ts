@@ -5,7 +5,9 @@ export enum AuthActions {
 	REGISTER = '[REGISTER] Register user',
 	LOGIN = '[LOGIN] Login user',
 	SET_ROLE = '[SET ROLE] Set the authed users role',
+	RESET_AUTH = '[RESET AUTH] Resets auth to original state',
 }
 
 export const setAuthed = createAction(AuthActions.SET_IS_AUTHED, props<{ isAuthed: boolean }>())
 export const setRole = createAction(AuthActions.SET_ROLE, props<{ role: string }>())
+export const resetAuth = createAction(AuthActions.RESET_AUTH)
