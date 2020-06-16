@@ -27,6 +27,7 @@ export class UserEffects {
 
 	private success(userModel: UserModel) {
 		this.authStore.dispatch({ type: AuthActions.SET_IS_AUTHED, isAuthed: true })
+		this.authStore.dispatch({ type: AuthActions.SET_ROLE, role: userModel.role })
 		return { type: UserActions.SET_USER, user: userModel }
 	}
 
