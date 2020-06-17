@@ -1,0 +1,11 @@
+.profile-btn {
+	line-height: 0;
+	.mat-icon {
+		height: 1rem;
+		width: 1rem;
+	}
+}
+
+.mat-menu-item:first-child {
+	border-bottom: 1px solid black;
+}

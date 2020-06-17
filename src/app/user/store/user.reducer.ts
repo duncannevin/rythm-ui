@@ -4,11 +4,17 @@ import { UserModel } from '../models/user.model'
 
 export const userFeatureKey = 'user'
 
+export interface UserImage {
+	data: string
+	contentType: string
+}
+
 export interface UserState {
 	_id: string
 	email: string
 	role: string
 	username: string
+	image: UserImage
 	createdAt: string
 	updateAt: string
 	user_id: string
@@ -21,6 +27,7 @@ export const initialState: UserState = {
 	email: null,
 	role: null,
 	username: null,
+	image: null,
 	createdAt: null,
 	updateAt: null,
 	user_id: null,

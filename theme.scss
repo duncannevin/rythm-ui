@@ -70,4 +70,8 @@ $rythm-app-theme: mat-light-theme($rythm-app-primary, $rythm-app-accent, $rythm-
 	p {
 		font-size: 1.2rem;
 	}
+
+	.mat-toolbar {
+		background-color: transparent;
+	}
 }
