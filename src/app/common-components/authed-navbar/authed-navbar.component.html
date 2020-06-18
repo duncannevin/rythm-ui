@@ -1,0 +1,20 @@
+<mat-toolbar>
+	<app-logo></app-logo>
+	<span class="fill-remaining"></span>
+	<span>
+		<button mat-button class="profile-btn" [matMenuTriggerFor]="userNavMenu">
+			<div [innerHTML]="userImage | async"></div>
+			<mat-icon svgIcon="down-caret"></mat-icon>
+		</button>
+		<mat-menu #userNavMenu xPosition="before">
+			<button mat-menu-item *ngFor="let item of navItems$ | async">
+				<div *ngIf="item.navTo" routerLink="item.navTo">
+					{{ item.label }}
+				</div>
+				<div *ngIf="item.action" (click)="item.action()">
+					{{ item.label }}
+				</div>
+			</button>
+		</mat-menu>
+	</span>
+</mat-toolbar>
